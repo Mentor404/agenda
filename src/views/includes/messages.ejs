@@ -1,0 +1,20 @@
+<%if (errors.length > 0) {%>
+<div class="error-container">
+    <% for(error of errors) { %>
+        <p class="text-sm text-red-500"> <%= error %> </p>
+    <% } %>
+
+</div>
+
+<% } %>
+
+
+<%if (successes.length > 0) {%>
+    <div class="success-container">
+        <% for(success of successes) { %>
+            <p class="text-sm text-green-500"><%= success %> </p>
+        <% } %>
+
+    </div>
+
+<% } %>

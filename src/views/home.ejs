@@ -1,27 +1,19 @@
-<%- include('includes/head');%>
+<%- include('includes/head'); %>
 
-<h1 class="text-6xl mt-4">Hello World</h1>
-<p class="mb-3">Olá, sou a rota GET 🙂</p>
-<h2 class="text-2xl">Dados obtida através da rota:</h2>
-<p class="bg-gray-300 rounded-md p-2">
-    <% if(typeof string !== 'undefined') { %>
-        <%= string %>
-    <% } %>
-</p>
-<p class="bg-gray-300 rounded-md p-2 mt-1">
-    <% for(const numero of array) { %>
-        <%= 'Número: ' + numero %><br>
-    <% } %>
-</p>
+<main class="flex-grow grid lg:grid-cols-2 auto-rows lg:grid-rows-1">
+    <section class="mx-auto lg:flex lg:items-center">
+        <img src="/assets/img/amico.svg" alt="Illustração" class="object-contain w-10/12 h-5/6 mx-auto mt-10 lg:mt-0">
+    </section>
+    <section class="mx-auto w-10/12 flex flex-col lg:justify-center">
+        <h1 class="text-center font-semibold mt-7 mb-4 text-4xl md:text-5xl xl:text-6xl text-orange-600">Contatos</h1>
+        <p class="text-xl md:text-2xl">
+            Mantenha-se organizado e conectado com seus contatos pessoais e profissionais.
+            Esta é a ferramenta de gerenciamento de contatos online que permite armazenar,
+            acessar e atualizar informações de contatos com facilidade e rapidez.
+            Registre-se agora e experimente.
+        </p>
+        <a href="/contacts" class="self-center py-4 my-8 px-16 md:px-24 md:text-xl rounded-lg border-2 border-orange-600 transition hover:bg-orange-600 hover:underline text-orange-600 hover:text-white">Conferir agora</a>
+    </section>
+</main>
 
-<h2 class="text-2xl mt-3">Dados obtidos através do middleware:</h2>
-<p class="bg-gray-300 rounded-md p-2"><%= varLocal %></p>
-
-<form action="/" method="post" class="mt-4">
-    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-    <label for="nome">Nome:</label>
-    <input type="text" name="nome" id="nome" class="bg-gray-300 border-2 border-gray-400 rounded-sm">
-    <button type="submit">Enviar</button>
-</form>
-
-<%- include('includes/footer');%>
+<%- include('includes/footer'); %>

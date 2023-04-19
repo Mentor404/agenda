@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const path = require("path");
 const app = express();
-const { exempleMiddleware } = require('./src/middlewares/exempleMiddleware');
+const { messagesMiddleware } = require('./src/middlewares/messagesMiddleware');
 const { checkCsrfError, csrfMiddleware } = require('./src/middlewares/csrfMiddleware');
 
 const mongoose = require('mongoose').default;
@@ -38,18 +38,25 @@ app.use(sessionOptions);
 app.use(flash());
 
 app.use(express.urlencoded({extended:true}));
-app.use(express.static(path.resolve(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'), {
+  setHeaders: (res, path) => {
+    if (path.endsWith('.css')) {
+      res.setHeader('Content-Type', 'text/css');
+    }
+  }
+}));
 
 app.set('views', path.resolve(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');
 
 app.use(csrf());
 
-app.use(exempleMiddleware);
+app.use(messagesMiddleware);
 app.use(checkCsrfError);
 app.use(csrfMiddleware);
 
-app.use('/', require('./src/routes/home'));
+const routes = require('./src/routes/routes');
+app.use('/', routes);
 
 app.listen(3000, () => {
   console.log('🚀 listening port 3000');

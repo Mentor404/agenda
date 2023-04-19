@@ -1,3 +1,68 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+table thead tr th, .table-padding {
+    @apply px-6 py-4;
+}
+
+table tbody tr:nth-child(odd) {
+    @apply border-b bg-neutral-100;
+}
+
+table tbody tr:nth-child(even) {
+    @apply border-b bg-white;
+}
+
+table tbody tr:hover {
+    @apply bg-neutral-200;
+}
+
+table tbody tr td {
+    @apply whitespace-nowrap table-padding;
+}
+
+table tbody tr {
+    @apply h-10;
+}
+
+.popover {
+    @apply flex-col w-0 h-fit z-50 relative top-0 text-white;
+}
+
+.btn-popover {
+    @apply px-3 bg-gray-600 hover:bg-gray-500 py-1 pr-16;
+}
+
+.register-container {
+    @apply shadow-md py-6;
+}
+
+#register-form {
+    @apply flex flex-col;
+}
+
+#register-form input {
+    @apply mb-4 h-10 border-gray-300 border-2 px-2 focus-visible:outline-none focus-visible:border-gray-500;
+}
+
+
+.login-container {
+    @apply shadow-md py-6;
+}
+
+#login-form {
+    @apply flex flex-col;
+}
+
+#login-form input {
+    @apply mb-4 h-10 border-gray-300 border-2 px-2 focus-visible:outline-none focus-visible:border-gray-500;
+}
+
+.error-container {
+    @apply bg-red-200 border-red-300 rounded-md border-2 -mt-2 mb-1.5 py-2 pl-1 grid gap-1.5;
+}
+
+.success-container {
+    @apply bg-green-200 border-green-300 rounded-md border-2 -mt-2 mb-1.5 py-2 pl-1 grid gap-1.5;
+}

@@ -1,0 +1,31 @@
+<%- include('includes/head'); %>
+<main class="flex-grow grid lg:grid-cols-2 auto-rows lg:grid-rows-1">
+    <section class="mx-auto lg:flex lg:items-center">
+        <img src="/assets/img/amico-r.svg" alt="Illustração"
+             class="object-contain w-10/12 h-5/6 mx-auto mt-10 lg:mt-0">
+    </section>
+    <section class="mx-auto w-10/12 flex flex-col lg:justify-center">
+
+        <div class="login-container px-4 mx-6">
+            <h2 class="font-semibold text-4xl md:text-5xl xl:text-6xl text-gray-600">Bem vindo!</h2>
+            <h2 class="text-xl xl:text-2xl text-gray-500 mb-4">Comece a ver os seus contatos</h2>
+            <form action="/login" id="login-form" method= "post">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <div class="flex flex-col">
+                    <label for="username">Usuário</label>
+                    <input type="text" name="username" id="username" required>
+                    <p class="hidden -mt-3.5 mb-1 text-red-400 text-sm"></p>
+                </div>
+                <div class="flex flex-col">
+                    <label for="password">Senha</label>
+                    <input type="password" name="password" id="password" required>
+                    <p class="hidden -mt-3.5 mb-1 text-red-400 text-sm"></p>
+                </div>
+                <%- include('includes/messages'); %>
+                <a href="/register" class="text-sm underline text-orange-600 w-fit">Não tem uma conta?</a>
+                <button class="bg-gray-600 hover:bg-gray-500 py-2 text-white mt-2">Entrar</button>
+            </form>
+        </div>
+    </section>
+</main>
+<%- include('includes/footer'); %>

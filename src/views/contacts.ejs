@@ -1,0 +1,55 @@
+<%- include('includes/head'); %>
+
+<main class="flex-grow">
+    <section class="mx-auto lg:w-10/12 flex flex-col lg:justify-center">
+        <h1 class="text-center font-semibold mt-7 mb-4 text-4xl md:text-5xl xl:text-6xl text-gray-600">Seus
+            contatos</h1>
+        <p class="text-xl text-center md:text-2xl mb-3">
+            Veja quem está na sua lista de contatos
+        </p>
+        <div class="flex flex-col">
+            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                    <div class="overflow-hidden">
+                        <table class="min-w-full text-left text-sm font-light">
+                            <thead class="border-b bg-gray-600 text-white font-medium">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Telefone</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Ações</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>
+                                    <button class="hover:bg-gray-400 rounded-md px-1 cursor-pointer action-button">
+                                        <img src="/assets/img/icon-settings.svg" alt="Ações">
+                                    </button>
+                                    <div class="popover hidden">
+                                        <a href="#" class="btn-popover rounded-t-md">Editar</a>
+                                        <a href="#" class="btn-popover rounded-b-md">Remover</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="/contacts/register" class="w-full text-center bg-gray-500 text-white py-3 my-6 hover:underline">
+            Adicionar novo contato
+        </a>
+        <%- include('includes/messages'); %>
+
+    </section>
+
+</main>
+
+<%- include('includes/footer'); %>

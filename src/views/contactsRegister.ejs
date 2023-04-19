@@ -1,0 +1,31 @@
+<%- include('includes/head'); %>
+
+<main class="flex-grow">
+    <section class="mx-auto lg:w-10/12 flex-col lg:justify-center mt-5">
+        <div class="register-container px-4 mx-6">
+            <h2 class="font-semibold text-4xl md:text-5xl xl:text-6xl text-gray-600">Novo contato</h2>
+            <h2 class="text-xl xl:text-2xl text-gray-500 mb-4">Adicione um novo contato à sua lista</h2>
+            <form action="/contacts/register" id="register-form" method="post">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+                <div class="flex flex-col">
+                    <label for="name">Nome</label>
+                    <input type="text" name="name" id="name" required>
+                </div>
+                <div class="flex flex-col">
+                    <label for="phone">Telefone</label>
+                    <input type="tel" name="phone" id="phone" required>
+                </div>
+                <div class="flex flex-col">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <%- include('includes/messages'); %>
+                <button class="bg-gray-600 hover:bg-gray-500 py-2 text-white mt-2">Salvar contato</button>
+            </form>
+        </div>
+    </section>
+
+</main>
+
+<%- include('includes/footer'); %>
