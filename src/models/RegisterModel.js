@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Validator = require("validator");
+const validator = require("validator");
 const bcryptjs = require("bcryptjs");
 
 const RegisterSchema = new mongoose.Schema({
@@ -68,10 +68,10 @@ class Register {
     for (const key in this.body) {
       if (typeof this.body[key] === "string") {
         if (key === "useremail") {
-          this.body[key] = Validator.normalizeEmail(this.body[key].trim());
+          this.body[key] = validator.normalizeEmail(this.body[key].trim());
         } else {
-          this.body[key] = Validator.escape(
-            Validator.stripLow(this.body[key].trim())
+          this.body[key] = validator.escape(
+            validator.stripLow(this.body[key].trim())
           );
         }
       } else {

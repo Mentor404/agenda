@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const Validator = require("validator");
+const validator = require("validator");
+const session = require("express-session");
 const bcryptjs = require("bcryptjs");
 const {RegisterModel} = require("./RegisterModel");
 
@@ -26,8 +27,6 @@ class Login {
       this.user = null;
       return;
     }
-
-    const test = 'test';
   }
 
   validate() {
@@ -45,8 +44,8 @@ class Login {
   sanitize() {
     for (const key in this.body) {
       if (typeof this.body[key] === "string") {
-          this.body[key] = Validator.escape(
-            Validator.stripLow(this.body[key].trim())
+          this.body[key] = validator.escape(
+            validator.stripLow(this.body[key].trim())
           );
       } else {
         this.body[key] = "";

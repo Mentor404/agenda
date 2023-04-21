@@ -1,7 +1,7 @@
-exports.contactsController = function (req, res) {
-  res.render("contacts");
-};
+const Contacts = require('../models/ContactsModel');
 
-exports.contactsPost = function (req, res) {
-  res.send("Olá, sou a rota POST 🙂 do /contacts");
+exports.contactsController = async function (req, res) {
+  const contacts = await Contacts.listContacts(req.session.user);
+
+  res.render("contacts", { contacts });
 };

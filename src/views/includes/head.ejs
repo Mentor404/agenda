@@ -14,7 +14,10 @@
     <ul class="text-white container mx-auto flex justify-between py-4">
         <li class="ml-4"><a href="/" class="py-2.5 font-semibold">Contatos</a></li>
         <% if(user) { %>
-            <li class="mr-4"><a href="/logout" class="py-2.5 hover:underline">Sair</a></li>
+                <li class="mr-4">
+                    <a href="/contacts" class="py-2.5 hover:underline mr-4">Seus Contatos</a>
+                    <a href="/logout" class="py-2.5 hover:underline">Sair</a>
+                </li>
         <% } else { %>
             <li class="mr-4"><a href="/login" class="py-2.5 hover:underline">Entrar</a></li>
         <% } %>
